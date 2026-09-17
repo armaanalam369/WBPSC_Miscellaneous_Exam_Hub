@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WBPSC Miscellaneous Prep Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <h2>WBPSC Misc <span>Prep Hub</span></h2>
+    </div>
+    <div class="nav-actions">
+      <button id="themeToggleBtn" class="btn btn-secondary" aria-label="Toggle Theme">🌓 Mode</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Config / Setup Dashboard -->
+    <section id="configSection" class="card">
+      <h2>Practice & Mock Test Engine</h2>
+      <p class="subtitle">Choose between WBPSC Miscellaneous PYQs, Mock Tests, or a Combined pool.</p>
+
+      <!-- 1. Major Pool Selection -->
+      <div class="form-group pool-selector-box">
+        <label class="section-heading">Select Question Source:</label>
+        <div class="radio-pill-group">
+          <label class="pill-label">
+            <input type="radio" name="sourcePool" value="pyq" checked>
+            <span>📜 WBPSC Misc PYQs</span>
+          </label>
+          <label class="pill-label">
+            <input type="radio" name="sourcePool" value="mock">
+            <span>🎯 Mock Test Bank</span>
+          </label>
+          <label class="pill-label">
+            <input type="radio" name="sourcePool" value="combined">
+            <span>⚡ Combined (PYQs + Mocks)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 2. Subject Sections -->
+      <div class="form-group">
+        <div class="flex-between">
+          <label class="section-heading">Select Subject Sections:</label>
+          <div class="quick-select">
+            <button type="button" id="selectAllBtn" class="btn-text">Select All</button>
+            <button type="button" id="clearAllBtn" class="btn-text">Clear All</button>
+          </div>
+        </div>
+        <div id="sectionGrid" class="checkbox-grid"></div>
+      </div>
+
+      <!-- 3. Modes & Settings -->
+      <div class="settings-grid">
+        <div class="form-group">
+          <label for="practiceMode">Practice Mode:</label>
+          <select id="practiceMode" class="form-control">
+            <option value="quiz">Quiz Mode (Instant Feedback & Explanation)</option>
+            <option value="test">Exam Mode (Final Scorecard & Timed)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="timerSetting">Timer (Minutes):</label>
+          <input type="number" id="timerSetting" class="form-control" min="1" max="180" value="20" placeholder="e.g. 20" />
+          <small class="hint">0 or empty for untimed practice.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="questionLimit">Question Limit:</label>
+          <input type="number" id="questionLimit" class="form-control" min="1" value="25" placeholder="All available if blank" />
+        </div>
+      </div>
+
+      <button id="startTestBtn" class="btn btn-primary btn-block">Start Session</button>
+    </section>
+
+    <!-- Test View Screen -->
+    <section id="testSection" class="card hidden">
+      <div class="test-header">
+        <div class="status-indicators">
+          <span id="questionCounter" class="badge">Q: 1/25</span>
+          <span id="poolBadge" class="badge badge-primary">PYQ</span>
+          <span id="sectionBadge" class="badge badge-accent">West Bengal Geography</span>
+          <span id="commonTagBadge" class="badge badge-warning hidden">Common Question</span>
+        </div>
+        <div id="timerDisplay" class="timer-box hidden">⏱️ 00:00</div>
+      </div>
+
+      <div class="question-container">
+        <h3 id="questionText">Loading question...</h3>
+        <div id="optionsContainer" class="options-grid"></div>
+        <div id="explanationContainer" class="explanation-box hidden"></div>
+      </div>
+
+      <div class="test-footer">
+        <button id="prevBtn" class="btn btn-secondary">Previous</button>
+        <button id="nextBtn" class="btn btn-secondary">Next</button>
+        <button id="submitTestBtn" class="btn btn-danger">End Test</button>
+      </div>
+    </section>
+
+    <!-- Results & Review -->
+    <section id="resultSection" class="card hidden">
+      <h2>Performance Report</h2>
+      <div class="stats-overview">
+        <div class="stat-card">
+          <span class="stat-value" id="scoreValue">0</span>
+          <span class="stat-label">Total Score</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value text-success" id="correctCount">0</span>
+          <span class="stat-label">Correct</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value text-danger" id="wrongCount">0</span>
+          <span class="stat-label">Incorrect</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value text-muted" id="unattemptedCount">0</span>
+          <span class="stat-label">Skipped</span>
+        </div>
+      </div>
+
+      <div class="results-actions">
+        <button id="reviewBtn" class="btn btn-secondary">Review Answers</button>
+        <button id="restartBtn" class="btn btn-primary">Start New Test</button>
+      </div>
+
+      <div id="reviewList" class="review-list hidden"></div>
+    </section>
+  </main>
+
+  <!-- 1. DUAL STORE INITIALIZATION -->
+  <script>
+    window.ExamQuestionBank = {
+      pyq: {},   // WBPSC Miscellaneous Previous Year Questions
+      mock: {}   // Mock Test Questions
+    };
+  </script>
+
+  <!-- 2. DATA FILES: PYQs (WBPSC Miscellaneous) -->
+  <script src="data/pyq/ancient_history.js"></script>
+  <script src="data/pyq/medieval_history.js"></script>
+  <script src="data/pyq/modern_history.js"></script>
+  <script src="data/pyq/indian_geo.js"></script>
+  <script src="data/pyq/wb_geo.js"></script>
+  <script src="data/pyq/arts_culture.js"></script>
+  <script src="data/pyq/polity.js"></script>
+  <script src="data/pyq/economy.js"></script>
+  <script src="data/pyq/physics.js"></script>
+  <script src="data/pyq/chemistry.js"></script>
+  <script src="data/pyq/biology.js"></script>
+  <script src="data/pyq/static_gk.js"></script>
+  <script src="data/pyq/current_affairs.js"></script>
+
+  <!-- 3. DATA FILES: MOCK TESTS -->
+  <script src="data/mocks/ancient_history.js"></script>
+  <script src="data/mocks/medieval_history.js"></script>
+  <script src="data/mocks/modern_history.js"></script>
+  <script src="data/mocks/indian_geo.js"></script>
+  <script src="data/mocks/wb_geo.js"></script>
+  <script src="data/mocks/arts_culture.js"></script>
+  <script src="data/mocks/polity.js"></script>
+  <script src="data/mocks/economy.js"></script>
+  <script src="data/mocks/physics.js"></script>
+  <script src="data/mocks/chemistry.js"></script>
+  <script src="data/mocks/biology.js"></script>
+  <script src="data/mocks/static_gk.js"></script>
+  <script src="data/mocks/current_affairs.js"></script>
+
+  <!-- 4. CORE ENGINE -->
+  <script src="app.js"></script>
+</body>
+</html>
+
