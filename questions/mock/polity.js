@@ -128,7 +128,7 @@ addSubject("mock", "polity", [
 
 addSubject("mock", "polity", [
   {
-    "title": "WBPSC MISC-2024 (MT-3)",
+    "title": "WBPSC MISC-2024 (MT-2)",
     "date": "03 Sep 2026",
     "questions": [
       {
@@ -177,7 +177,7 @@ addSubject("mock", "polity", [
 
 addSubject("mock", "polity", [
   {
-    "title": "WBPSC MISC-2024 (MT-4)",
+    "title": "WBPSC MISC-2024 (MT-3)",
     "date": "10 Sep 2026",
     "questions": [
       {
