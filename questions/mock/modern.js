@@ -276,7 +276,7 @@ addSubject("mock", "modern", [
 
 addSubject("mock", "modern", [
   {
-    "title": "WBPSC MISC-2024 (MT-4",
+    "title": "WBPSC MISC-2024 (MT-4)",
     "date": "17 Sep 2026",
     "questions": [
       {
