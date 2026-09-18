@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Miscellaneous Exam Prep · Wise Choice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0A1B33;
+    --navy-900:#0F2444;
+    --navy-800:#16305C;
+    --navy-700:#1E3E72;
+    --gold-500:#C6A15B;
+    --gold-600:#A9822F;
+    --gold-100:#F3E8CE;
+    --cream:#FAF6EC;
+    --paper:#FFFFFF;
+    --ink-900:#1C2230;
+    --ink-600:#4B5468;
+    --ink-400:#8891A0;
+    --line:#E4DFD0;
+    --green:#2E6B4C;
+    --green-bg:#E7F1EA;
+    --red:#A13F30;
+    --red-bg:#FBEAE6;
+    --amber:#B07E1E;
+    --selected-bg:#EEF2FA;
+    --radius:10px;
+    --shadow:0 1px 2px rgba(15,36,68,.06), 0 6px 20px rgba(15,36,68,.06);
+  }
+  html[data-theme="dark"]{
+    --navy-950:#050C18;
+    --navy-900:#0A1730;
+    --navy-800:#122241;
+    --navy-700:#1B3055;
+    --gold-500:#D9B876;
+    --gold-600:#E8C989;
+    --gold-100:#2A2413;
+    --cream:#0A0F1A;
+    --paper:#111A2C;
+    --ink-900:#ECF1FC;
+    --ink-600:#AEB9D1;
+    --ink-400:#77839C;
+    --line:#233150;
+    --green:#5BB98B;
+    --green-bg:#10281D;
+    --red:#E0796A;
+    --red-bg:#301412;
+    --amber:#D9AE55;
+    --selected-bg:#17233F;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-tap-highlight-color:transparent;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink-900);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    transition:background .2s ease, color .2s ease;
+  }
+  h1,h2,h3,.serif{font-family:'Lora',Georgia,serif;}
+  button{font-family:inherit;}
+  @media (prefers-reduced-motion: reduce){ *{animation:none!important; transition:none!important;} }
+
+  /* ===== Header / Letterhead ===== */
+  .masthead{
+    background:linear-gradient(180deg,var(--navy-950),var(--navy-900) 70%);
+    color:#fff;
+    padding:18px 18px 22px;
+    position:relative;
+    border-bottom:3px solid var(--gold-500);
+  }
+  .masthead-inner{max-width:1080px; margin:0 auto;}
+  .brand-row{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{
+    width:36px; height:36px; border-radius:50%;
+    background:var(--gold-500); color:var(--navy-950);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Lora',serif; font-weight:700; font-size:16px; flex:none;
+  }
+  .brand-name{font-size:12.5px; letter-spacing:.02em; color:var(--gold-100); font-weight:600;}
+  .brand-sub{font-size:10.5px; color:#9FB0CC; margin-top:1px;}
+  .head-actions{display:flex; align-items:center; gap:8px;}
+  .icon-btn{
+    background:none; border:1px solid rgba(255,255,255,.25); color:#EAF0FF;
+    border-radius:8px; width:34px; height:34px; font-size:15px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .home-btn{
+    background:none; border:1px solid rgba(255,255,255,.25); color:#EAF0FF;
+    border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer;
+  }
+  .masthead h1{font-size:22px; margin:16px 0 4px; font-weight:600;}
+  .masthead p.deck{margin:0; color:#B9C6DE; font-size:13.5px; max-width:56ch;}
+
+  /* Bank switcher segmented control */
+  .seg{
+    display:inline-flex; margin-top:14px; background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2); border-radius:9px; padding:3px;
+  }
+  .seg button{
+    border:none; background:none; color:#C9D3E6; font-size:13px; font-weight:600;
+    padding:7px 16px; border-radius:7px; cursor:pointer;
+  }
+  .seg button.active{background:var(--gold-500); color:var(--navy-950);}
+
+  /* ===== Layout ===== */
+  main{max-width:760px; margin:0 auto; padding:18px 16px 60px;}
+  @media (min-width:900px){
+    main.wide{max-width:1080px;}
+  }
+  .section-label{
+    font-size:11.5px; letter-spacing:.03em; color:var(--ink-400);
+    margin:26px 2px 10px; font-weight:600;
+  }
+  .section-label:first-child{margin-top:4px;}
+
+  /* Hero action cards (custom test / full bank) */
+  .hero-row{display:grid; grid-template-columns:1fr; gap:12px; margin-top:16px;}
+  @media (min-width:700px){ .hero-row{grid-template-columns:1fr 1fr;} }
+  .mock-card{
+    background:var(--navy-900); color:#fff; border-radius:var(--radius);
+    padding:18px 18px 20px; box-shadow:var(--shadow);
+    position:relative; overflow:hidden;
+  }
+  .mock-card::after{
+    content:""; position:absolute; right:-30px; top:-30px; width:140px; height:140px;
+    border-radius:50%; background:radial-gradient(circle,rgba(198,161,91,.25),transparent 70%);
+  }
+  .mock-card h2{margin:0 0 6px; font-size:18px; color:#fff;}
+  .mock-card p{margin:0 0 14px; color:#B9C6DE; font-size:13px; max-width:44ch;}
+  .mock-meta{display:flex; gap:16px; margin-bottom:16px; flex-wrap:wrap;}
+  .mock-meta div{font-size:11.5px; color:#9FB0CC;}
+  .mock-meta b{display:block; color:#fff; font-size:15px; font-family:'Lora',serif;}
+  .btn{
+    border:none; border-radius:8px; padding:11px 18px; font-size:14px; font-weight:600;
+    cursor:pointer; display:inline-flex; align-items:center; gap:6px;
+  }
+  .btn-gold{background:var(--gold-500); color:var(--navy-950);}
+  .btn-gold:active{background:var(--gold-600);}
+  .btn-ghost{background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.25);}
+  .mock-actions{display:flex; gap:10px; flex-wrap:wrap;}
+
+  .builder-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px; box-shadow:var(--shadow);
+  }
+  .builder-card h2{margin:0 0 6px; font-size:18px;}
+  .builder-card p{margin:0 0 14px; color:var(--ink-600); font-size:13px;}
+
+  /* Subject ledger list */
+  .ledger{
+    background:var(--paper); border-radius:var(--radius); box-shadow:var(--shadow);
+    overflow:hidden; border:1px solid var(--line);
+  }
+  @media (min-width:900px){
+    .ledger{display:grid; grid-template-columns:1fr 1fr;}
+    .ledger-row{border-right:1px solid var(--line);}
+    .ledger-row:nth-child(even){border-right:none;}
+  }
+  .ledger-row{
+    display:flex; align-items:center; gap:12px;
+    padding:13px 14px; border-bottom:1px solid var(--line);
+    cursor:pointer; background:none; width:100%; text-align:left; border-left:none; border-right:none; border-top:none;
+    color:var(--ink-900);
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  @media (hover:hover){ .ledger-row:hover{background:var(--cream);} }
+  .ledger-row:active{background:var(--cream);}
+  .ledger-num{font-family:'Lora',serif; font-size:13px; color:var(--gold-600); width:22px; flex:none; font-weight:600;}
+  .ledger-icon{font-size:19px; flex:none; width:26px; text-align:center;}
+  .ledger-body{flex:1; min-width:0;}
+  .ledger-title{font-size:14.5px; font-weight:600;}
+  .ledger-sub{font-size:12px; color:var(--ink-400); margin-top:2px;}
+  .ledger-score{font-size:11.5px; color:var(--green); font-weight:600; margin-top:2px;}
+  .ledger-chev{color:var(--ink-400); font-size:18px; flex:none;}
+
+  /* Subject detail */
+  .back-row{display:flex; align-items:center; gap:8px; margin-bottom:14px;}
+  .back-btn{
+    background:none; border:none; color:var(--navy-800); font-size:14px; font-weight:600;
+    cursor:pointer; padding:6px 0; display:flex; align-items:center; gap:4px;
+  }
+  html[data-theme="dark"] .back-btn{color:var(--gold-500);}
+  .subj-hero{display:flex; align-items:center; gap:14px; margin-bottom:6px;}
+  .subj-hero .ledger-icon{font-size:30px; width:auto;}
+  .subj-hero h2{margin:0; font-size:21px;}
+  .subj-hero .cnt{color:var(--ink-400); font-size:13px; margin-top:2px;}
+
+  .set-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:14px 16px; margin-top:12px; box-shadow:var(--shadow);
+  }
+  .set-card h3{margin:0 0 3px; font-size:15.5px;}
+  .set-card .meta{font-size:12.5px; color:var(--ink-400); margin-bottom:12px;}
+  .set-actions{display:flex; gap:8px; flex-wrap:wrap;}
+  .btn-sm{
+    border-radius:7px; padding:8px 13px; font-size:13px; font-weight:600; border:1px solid var(--navy-800);
+    background:var(--paper); color:var(--navy-800); cursor:pointer;
+  }
+  html[data-theme="dark"] .btn-sm{color:var(--gold-500); border-color:var(--gold-500);}
+  .btn-sm.primary{background:var(--navy-900); color:#fff; border-color:var(--navy-900);}
+  html[data-theme="dark"] .btn-sm.primary{background:var(--gold-500); color:var(--navy-950); border-color:var(--gold-500);}
+  .best-pill{
+    display:inline-block; margin-left:8px; font-size:11px; background:var(--green-bg); color:var(--green);
+    padding:2px 7px; border-radius:999px; font-weight:600;
+  }
+  .practice-all{margin-top:16px; text-align:center;}
+  .practice-all button{
+    background:none; border:1px dashed var(--ink-400); color:var(--ink-600);
+    border-radius:8px; padding:10px 14px; font-size:13px; cursor:pointer; width:100%;
+  }
+  .empty-note{text-align:center; color:var(--ink-400); font-size:13px; padding:30px 10px;}
+
+  /* Custom test builder */
+  .check-grid{display:grid; grid-template-columns:1fr; gap:8px; margin:14px 0;}
+  @media (min-width:640px){ .check-grid{grid-template-columns:1fr 1fr;} }
+  .check-item{
+    display:flex; align-items:center; gap:10px; border:1px solid var(--line); border-radius:8px;
+    padding:10px 12px; cursor:pointer; background:var(--paper);
+  }
+  .check-item.on{border-color:var(--navy-700); background:var(--selected-bg);}
+  .check-item .box{
+    width:19px; height:19px; border-radius:5px; border:1.5px solid var(--ink-400); flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:12px; color:#fff;
+  }
+  .check-item.on .box{background:var(--navy-800); border-color:var(--navy-800);}
+  html[data-theme="dark"] .check-item.on .box{background:var(--gold-500); border-color:var(--gold-500); color:var(--navy-950);}
+  .check-item .lbl{flex:1; font-size:13.5px; font-weight:500;}
+  .check-item .cnt{font-size:11.5px; color:var(--ink-400);}
+  .builder-toolbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;}
+  .link-btn{background:none; border:none; color:var(--navy-800); font-size:12.5px; font-weight:600; cursor:pointer;}
+  html[data-theme="dark"] .link-btn{color:var(--gold-500);}
+  .builder-summary{
+    display:flex; justify-content:space-between; align-items:center; margin-top:14px;
+    padding-top:14px; border-top:1px solid var(--line);
+  }
+  .builder-summary b{font-family:'Lora',serif; font-size:16px;}
+  .builder-actions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;}
+
+  /* Timer setup */
+  .setup-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px; box-shadow:var(--shadow);
+  }
+  .setup-card h2{margin:0 0 4px; font-size:18px;}
+  .setup-card .cnt{color:var(--ink-400); font-size:13px; margin-bottom:16px;}
+  .chip-grid{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;}
+  .chip{
+    border:1px solid var(--line); background:var(--paper); border-radius:999px; padding:8px 15px;
+    font-size:13px; cursor:pointer; color:var(--ink-600); font-weight:500;
+  }
+  .chip.active{background:var(--navy-900); color:#fff; border-color:var(--navy-900);}
+  html[data-theme="dark"] .chip.active{background:var(--gold-500); color:var(--navy-950); border-color:var(--gold-500);}
+  .custom-time{display:flex; align-items:center; gap:8px; margin-bottom:18px;}
+  .custom-time input{
+    width:80px; padding:8px 10px; border:1px solid var(--line); border-radius:7px; font-size:14px;
+    background:var(--paper); color:var(--ink-900);
+  }
+  .custom-time label{font-size:13px; color:var(--ink-600);}
+
+  /* Run view */
+  .run-header{
+    position:sticky; top:0; background:var(--cream); z-index:5; padding-bottom:10px;
+    border-bottom:1px solid var(--line); margin-bottom:14px;
+  }
+  .run-topline{display:flex; justify-content:space-between; align-items:center; padding-top:14px; gap:10px;}
+  .run-title{font-size:13px; font-weight:600; color:var(--ink-600); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .timer{
+    font-family:'Lora',serif; font-weight:600; font-size:15px; color:var(--navy-900);
+    background:var(--gold-100); padding:3px 10px; border-radius:6px; flex:none;
+  }
+  html[data-theme="dark"] .timer{color:var(--gold-500);}
+  .timer.low{color:var(--red); background:var(--red-bg);}
+  .progressbar{height:5px; background:var(--line); border-radius:3px; margin-top:10px; overflow:hidden;}
+  .progressbar > div{height:100%; background:var(--gold-500);}
+
+  .run-body{max-width:640px; margin:0 auto;}
+
+  .qcard{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 16px; box-shadow:var(--shadow);
+  }
+  .qnum{font-size:12px; color:var(--ink-400); font-weight:600; margin-bottom:6px;}
+  .dup-badge{
+    display:inline-block; font-size:11px; font-weight:600; color:var(--amber);
+    background:var(--gold-100); padding:3px 9px; border-radius:999px; margin-bottom:10px;
+  }
+  .qtext{font-size:16.5px; font-weight:500; color:var(--ink-900); margin-bottom:16px; line-height:1.5;}
+  .opt{
+    display:flex; align-items:flex-start; gap:10px;
+    border:1px solid var(--line); border-radius:8px; padding:11px 12px; margin-bottom:9px;
+    cursor:pointer; background:var(--paper); font-size:14.5px; text-align:left; width:100%; color:var(--ink-900);
+  }
+  .opt .tag{
+    flex:none; width:22px; height:22px; border-radius:50%; border:1px solid var(--ink-400);
+    color:var(--ink-600); font-size:12px; display:flex; align-items:center; justify-content:center; font-weight:600;
+  }
+  @media (hover:hover){ .opt:hover{background:var(--cream);} }
+  .opt.selected{border-color:var(--navy-700); background:var(--selected-bg);}
+  .opt.selected .tag{background:var(--navy-800); color:#fff; border-color:var(--navy-800);}
+  .opt.correct{border-color:var(--green); background:var(--green-bg);}
+  .opt.correct .tag{background:var(--green); color:#fff; border-color:var(--green);}
+  .opt.wrong{border-color:var(--red); background:var(--red-bg);}
+  .opt.wrong .tag{background:var(--red); color:#fff; border-color:var(--red);}
+  .opt[disabled]{cursor:default;}
+
+  .explain{
+    margin-top:6px; font-size:13.5px; padding:11px 12px; border-radius:8px;
+    background:var(--cream); border:1px solid var(--line); color:var(--ink-600);
+  }
+
+  .run-nav{display:flex; justify-content:space-between; gap:10px; margin-top:16px; max-width:640px; margin-left:auto; margin-right:auto;}
+  .run-nav button{flex:1;}
+  .flag-row{display:flex; justify-content:center; margin-top:12px;}
+  .flag-btn{background:none; border:none; color:var(--amber); font-size:12.5px; font-weight:600; cursor:pointer; padding:6px 10px;}
+  .flag-btn.on{color:var(--navy-950); background:var(--amber); border-radius:6px;}
+
+  .navigator{
+    margin-top:18px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:12px 14px; box-shadow:var(--shadow); max-width:640px; margin-left:auto; margin-right:auto;
+  }
+  .navigator h4{margin:0 0 10px; font-size:12.5px; color:var(--ink-400); font-weight:600;}
+  .nav-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(34px,1fr)); gap:7px;}
+  .nav-cell{
+    aspect-ratio:1; border-radius:6px; border:1px solid var(--line); background:var(--paper);
+    font-size:12px; color:var(--ink-600); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-weight:600;
+  }
+  .nav-cell.answered{background:var(--navy-800); color:#fff; border-color:var(--navy-800);}
+  html[data-theme="dark"] .nav-cell.answered{background:var(--gold-500); color:var(--navy-950); border-color:var(--gold-500);}
+  .nav-cell.flagged{border-color:var(--amber); box-shadow:inset 0 0 0 1.5px var(--amber);}
+  .nav-cell.current{outline:2px solid var(--gold-500); outline-offset:1px;}
+
+  .submit-bar{margin-top:18px; text-align:center; max-width:640px; margin-left:auto; margin-right:auto;}
+  .submit-bar .btn{width:100%; justify-content:center; padding:13px;}
+
+  /* Results */
+  .score-hero{
+    background:var(--navy-900); color:#fff; border-radius:var(--radius); padding:22px 18px;
+    text-align:center; box-shadow:var(--shadow);
+  }
+  .score-big{font-family:'Lora',serif; font-size:44px; font-weight:700; color:var(--gold-500);}
+  .score-sub{color:#B9C6DE; font-size:13px; margin-top:2px;}
+  .stat-row{display:flex; justify-content:center; gap:22px; margin-top:16px; flex-wrap:wrap;}
+  .stat-row div{text-align:center;}
+  .stat-row b{display:block; font-size:17px; font-family:'Lora',serif;}
+  .stat-row span{font-size:11px; color:#9FB0CC;}
+
+  .breakdown{margin-top:20px;}
+  .bd-row{margin-bottom:12px;}
+  .bd-top{display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;}
+  .bd-top b{font-weight:600; color:var(--ink-900);}
+  .bd-top span{color:var(--ink-400);}
+  .bd-track{height:8px; background:var(--line); border-radius:4px; overflow:hidden;}
+  .bd-fill{height:100%; background:var(--green);}
+
+  .review-item{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:14px 15px;
+    margin-top:12px;
+  }
+  .review-tagbar{display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap;}
+  .pill{font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; letter-spacing:.02em;}
+  .pill.ok{background:var(--green-bg); color:var(--green);}
+  .pill.no{background:var(--red-bg); color:var(--red);}
+  .pill.skip{background:var(--cream); color:var(--ink-500); border:1px solid var(--line);}
+  .pill.dup{background:var(--gold-100); color:var(--amber);}
+  .review-item .qtext{font-size:14.5px; margin-bottom:10px;}
+  .review-opt{font-size:13px; padding:7px 10px; border-radius:6px; margin-bottom:6px; border:1px solid var(--line); color:var(--ink-900);}
+  .review-opt.correct{background:var(--green-bg); border-color:var(--green); color:var(--green);}
+  .review-opt.your-wrong{background:var(--red-bg); border-color:var(--red); color:var(--red);}
+
+  .filter-row{display:flex; gap:8px; margin:16px 0; flex-wrap:wrap;}
+  .filter-chip{border:1px solid var(--line); background:var(--paper); border-radius:999px; padding:6px 13px; font-size:12.5px; cursor:pointer; color:var(--ink-600);}
+  .filter-chip.active{background:var(--navy-900); color:#fff; border-color:var(--navy-900);}
+  html[data-theme="dark"] .filter-chip.active{background:var(--gold-500); color:var(--navy-950); border-color:var(--gold-500);}
+
+  .result-actions{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;}
+  .result-actions button{flex:1;}
+
+  footer{text-align:center; color:var(--ink-400); font-size:11.5px; padding:20px 16px 40px;}
+</style>
+</head>
+<body>
+<div id="masthead"></div>
+<main id="app"></main>
+<footer>Wise Choice · Miscellaneous Exam Prep · PYQ Bank &amp; Mock Test Bank</footer>
+
+<script>
+/* =====================================================================
+   CORE — this block defines the app's structure. It should not need to
+   change when adding new content. New questions/papers go into the
+   files under questions/pyq/ and questions/mock/ instead.
+===================================================================== */
+
+/* The 14 sections, fixed for both banks. Order here = order shown on
+   the site. To rename a section or change its icon, edit it here only —
+   every question file just refers to a section by its short "key". */
+const SECTION_DEFS = [
+  {key:"ancient",        name:"Ancient History",         icon:"🏺"},
+  {key:"medieval",       name:"Medieval History",        icon:"🏰"},
+  {key:"modern",         name:"Modern History",          icon:"🗽"},
+  {key:"geography",      name:"Indian Geography",        icon:"🗺️"},
+  {key:"wbgeo",          name:"West Bengal Geography",   icon:"🐟"},
+  {key:"artsculture",    name:"Arts & Culture",          icon:"🎭"},
+  {key:"polity",         name:"Indian Polity",           icon:"⚖️"},
+  {key:"economy",        name:"Indian Economy",          icon:"📈"},
+  {key:"physics",        name:"Physics",                 icon:"🧲"},
+  {key:"chemistry",      name:"Chemistry",                icon:"⚗️"},
+  {key:"biology",        name:"Biology",                 icon:"🧬"},
+  {key:"staticgk",       name:"Static GK",               icon:"📚"},
+  {key:"currentaffairs", name:"Current Affairs",         icon:"📰"},
+  {key:"maths",          name:"Mathematics",             icon:"➗"}
+];
+
+const BANK_LABEL = {pyq:"PYQ", mock:"Mock Test"};
+
+/* Registry that question files write into. Each subject file calls:
+     addSubject("pyq"|"mock", "<sectionKey>", [ {title, date, questions:[...]}, ... ]);
+   Calling it more than once for the same bank+section just appends more
+   sets — that's how a new mock test or a new year's PYQ gets added. */
+window.QBANK = {pyq:{}, mock:{}};
+function addSubject(bank, key, sets){
+  if(!window.QBANK[bank][key]) window.QBANK[bank][key] = [];
+  window.QBANK[bank][key].push(...sets);
+}
+
+/* =====================================================================
+   HELPERS
+===================================================================== */
+function getSets(bank,key){ return (window.QBANK[bank] && window.QBANK[bank][key]) || []; }
+function getCount(bank,key){ return getSets(bank,key).reduce((a,s)=>a+s.questions.length,0); }
+function bankTotal(bank){ return SECTION_DEFS.reduce((a,s)=>a+getCount(bank,s.key),0); }
+
+function storageKey(k){ return "wc_qbank_"+k; }
+function getBest(id){
+  try{ const v = localStorage.getItem(storageKey(id)); return v?JSON.parse(v):null; }catch(e){ return null; }
+}
+function setBest(id, pct){
+  try{
+    const prev = getBest(id);
+    if(!prev || pct > prev.pct){ localStorage.setItem(storageKey(id), JSON.stringify({pct, ts:Date.now()})); }
+  }catch(e){}
+}
+function fmtTime(sec){
+  sec = Math.max(0,Math.round(sec));
+  const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = sec%60;
+  if(h>0) return h+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  return m+":"+String(s).padStart(2,"0");
+}
+function letters(i){ return ["A","B","C","D"][i]; }
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function normalizeQ(text){ return String(text).toLowerCase().replace(/[^a-z0-9]+/g," ").trim(); }
+
+/* Duplicate-question detection: built once per bank from whatever is
+   currently loaded, so it stays correct automatically as sets are added. */
+let dupCache = {};
+function getDupMap(bank){
+  if(dupCache[bank]) return dupCache[bank];
+  const map = {};
+  SECTION_DEFS.forEach(sec=>{
+    getSets(bank,sec.key).forEach(set=>{
+      set.questions.forEach(q=>{
+        const n = normalizeQ(q.q);
+        if(!map[n]) map[n] = [];
+        map[n].push(set.title);
+      });
+    });
+  });
+  dupCache[bank] = map;
+  return map;
+}
+function dupTitlesFor(bank, q, currentSetTitle){
+  const occ = getDupMap(bank)[normalizeQ(q.q)] || [];
+  const others = [...new Set(occ.filter(t=>t!==currentSetTitle))];
+  return others;
+}
+
+/* Collects a flat question list for any scope:
+     {type:'set', subjectKey, setIndex}
+     {type:'subject', subjectKey}
+     {type:'subjects', subjectKeys:[...]}
+     {type:'full'} */
+function collectQuestions(bank, scope){
+  const keys = scope.type==="full" ? SECTION_DEFS.map(s=>s.key)
+             : scope.type==="subjects" ? scope.subjectKeys
+             : [scope.subjectKey];
+  let out = [];
+  keys.forEach(key=>{
+    const sec = SECTION_DEFS.find(s=>s.key===key);
+    const allSets = getSets(bank,key);
+    const useSets = (scope.type==="set" && key===scope.subjectKey) ? [allSets[scope.setIndex]].filter(Boolean) : allSets;
+    useSets.forEach(set=>{
+      set.questions.forEach(q=>{
+        out.push({...q, subjectKey:key, subjectName:sec.name, setTitle:set.title});
+      });
+    });
+  });
+  return out;
+}
+function scopeTitle(bank, scope){
+  if(scope.type==="full") return "Full "+BANK_LABEL[bank]+" Bank";
+  if(scope.type==="subjects") return "Custom Test ("+scope.subjectKeys.length+" section"+(scope.subjectKeys.length===1?"":"s")+")";
+  const sec = SECTION_DEFS.find(s=>s.key===scope.subjectKey);
+  if(scope.type==="subject") return sec.name+" — All Questions";
+  const set = getSets(bank,scope.subjectKey)[scope.setIndex];
+  return sec.name+" — "+(set?set.title:"");
+}
+function scopeResultId(bank, scope){
+  if(scope.type==="full") return bank+"_full";
+  if(scope.type==="subjects") return bank+"_custom_"+[...scope.subjectKeys].sort().join("-");
+  if(scope.type==="subject") return bank+"_subj_"+scope.subjectKey;
+  return bank+"_set_"+scope.subjectKey+"_"+scope.setIndex;
+}
+
+/* =====================================================================
+   STATE
+===================================================================== */
+let state = {view:"home", bank: localStorage.getItem(storageKey("bank")) || "mock"};
+let customSelection = new Set();
+let timerHandle = null;
+
+function goHome(){ state = {view:"home", bank:state.bank}; render(); window.scrollTo(0,0); }
+function switchBank(bank){
+  state = {view:"home", bank};
+  try{ localStorage.setItem(storageKey("bank"), bank); }catch(e){}
+  render(); window.scrollTo(0,0);
+}
+function toggleTheme(){
+  const cur = document.documentElement.getAttribute("data-theme");
+  const next = cur==="dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try{ localStorage.setItem(storageKey("theme"), next); }catch(e){}
+  renderMasthead();
+}
+function initTheme(){
+  let saved = null;
+  try{ saved = localStorage.getItem(storageKey("theme")); }catch(e){}
+  if(!saved){ saved = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
+  document.documentElement.setAttribute("data-theme", saved);
+}
+
+/* =====================================================================
+   MASTHEAD
+===================================================================== */
+function renderMasthead(){
+  const el = document.getElementById("masthead");
+  const isDark = document.documentElement.getAttribute("data-theme")==="dark";
+  const bank = state.bank || "mock";
+  el.innerHTML = `
+  <div class="masthead">
+    <div class="masthead-inner">
+      <div class="brand-row">
+        <div class="brand">
+          <div class="brand-mark">WC</div>
+          <div>
+            <div class="brand-name">WISE CHOICE</div>
+            <div class="brand-sub">Miscellaneous Exam Prep</div>
+          </div>
+        </div>
+        <div class="head-actions">
+          ${state.view!=="home" ? `<button class="home-btn" onclick="goHome()">Home</button>` : ""}
+          <button class="icon-btn" onclick="toggleTheme()" title="Toggle dark / light mode">${isDark?"☀️":"🌙"}</button>
+        </div>
+      </div>
+      <h1>Question Bank</h1>
+      <p class="deck">Two banks, one structure: Previous Year Questions from actual WBPSC Miscellaneous exams, and Mock Test papers conducted along the way. Practice by section, build a custom test, or sit a full timed paper.</p>
+      ${state.view==="home" ? `
+      <div class="seg">
+        <button class="${bank==='pyq'?'active':''}" onclick="switchBank('pyq')">PYQs</button>
+        <button class="${bank==='mock'?'active':''}" onclick="switchBank('mock')">Mock Tests</button>
+      </div>` : ""}
+    </div>
+  </div>`;
+}
+
+/* =====================================================================
+   HOME VIEW
+===================================================================== */
+function viewHome(){
+  const bank = state.bank;
+  const total = bankTotal(bank);
+  const bestFull = getBest(bank+"_full");
+  const rows = SECTION_DEFS.map((s,i)=>{
+    const n = getCount(bank,s.key);
+    const setCount = getSets(bank,s.key).length;
+    const best = getBest(bank+"_subj_"+s.key);
+    return `
+    <button class="ledger-row" onclick="openSubject('${s.key}')">
+      <div class="ledger-num">${String(i+1).padStart(2,"0")}</div>
+      <div class="ledger-icon">${s.icon}</div>
+      <div class="ledger-body">
+        <div class="ledger-title">${s.name}</div>
+        <div class="ledger-sub">${n} question${n===1?"":"s"}${setCount?" · "+setCount+" paper"+(setCount===1?"":"s"):" · none added yet"}</div>
+        ${best ? `<div class="ledger-score">Best score ${best.pct}%</div>` : ""}
+      </div>
+      <div class="ledger-chev">›</div>
+    </button>`;
+  }).join("");
+
+  return `
+  <div class="hero-row">
+    <div class="mock-card">
+      <h2>Full ${BANK_LABEL[bank]} Test</h2>
+      <p>Every question currently in the ${BANK_LABEL[bank].toLowerCase()} bank, across all 14 sections, in one sitting.</p>
+      <div class="mock-meta">
+        <div><b>${total}</b>questions</div>
+        <div><b>${bestFull ? bestFull.pct+"%" : "—"}</b>best score</div>
+      </div>
+      <div class="mock-actions">
+        <button class="btn btn-gold" ${total===0?"disabled style='opacity:.5'":""} onclick="startFull('test')">Start full test</button>
+        <button class="btn btn-ghost" ${total===0?"disabled style='opacity:.5'":""} onclick="startFull('quiz')">Practice mode</button>
+      </div>
+    </div>
+    <div class="builder-card">
+      <h2>Build a custom test</h2>
+      <p>Pick any combination of sections from the ${BANK_LABEL[bank].toLowerCase()} bank and set your own timer.</p>
+      <button class="btn-sm primary" onclick="openBuilder()">Choose sections ›</button>
+    </div>
+  </div>
+
+  <div class="section-label">Sections — ${BANK_LABEL[bank]} bank</div>
+  <div class="ledger">${rows}</div>
+  `;
+}
+
+/* =====================================================================
+   SUBJECT VIEW
+===================================================================== */
+function openSubject(key){ state = {view:"subject", bank:state.bank, subjectKey:key}; render(); window.scrollTo(0,0); }
+
+function viewSubject(){
+  const bank = state.bank;
+  const sec = SECTION_DEFS.find(s=>s.key===state.subjectKey);
+  const sets = getSets(bank, sec.key);
+  const n = getCount(bank, sec.key);
+
+  if(sets.length===0){
+    return `
+    <div class="back-row"><button class="back-btn" onclick="goHome()">‹ All sections</button></div>
+    <div class="subj-hero">
+      <div class="ledger-icon">${sec.icon}</div>
+      <div><h2>${sec.name}</h2><div class="cnt">No ${BANK_LABEL[bank].toLowerCase()} papers added for this section yet</div></div>
+    </div>
+    <div class="empty-note">Once ${sec.name} questions are added to questions/${bank}/${sec.key}.js, they'll appear here automatically.</div>
+    `;
+  }
+
+  const setCards = sets.map((set,idx)=>{
+    const id = bank+"_set_"+sec.key+"_"+idx;
+    const best = getBest(id);
+    return `
+    <div class="set-card">
+      <h3>${escapeHtml(set.title)}</h3>
+      <div class="meta">${set.questions.length} questions${set.date?" · "+escapeHtml(set.date):""} ${best ? `<span class="best-pill">Best ${best.pct}%</span>` : ""}</div>
+      <div class="set-actions">
+        <button class="btn-sm primary" onclick="openSetup({type:'set', subjectKey:'${sec.key}', setIndex:${idx}})">Take as test</button>
+        <button class="btn-sm" onclick="launchRun('${bank}', {type:'set', subjectKey:'${sec.key}', setIndex:${idx}}, 'quiz', null)">Practice quiz</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  return `
+  <div class="back-row"><button class="back-btn" onclick="goHome()">‹ All sections</button></div>
+  <div class="subj-hero">
+    <div class="ledger-icon">${sec.icon}</div>
+    <div>
+      <h2>${sec.name}</h2>
+      <div class="cnt">${n} question${n===1?"":"s"} across ${sets.length} paper${sets.length===1?"":"s"}</div>
+    </div>
+  </div>
+  ${setCards}
+  <div class="practice-all">
+    <button onclick="launchRun('${bank}', {type:'subject', subjectKey:'${sec.key}'}, 'quiz', null)">Practice all ${n} questions in ${escapeHtml(sec.name)}</button>
+  </div>
+  ${sets.length>1 ? `<div class="practice-all" style="margin-top:8px;"><button onclick="openSetup({type:'subject', subjectKey:'${sec.key}'})" style="border-style:solid; color:var(--navy-800); border-color:var(--navy-800);">Take full sectional test (${n} questions, timed)</button></div>` : ""}
+  `;
+}
+
+/* =====================================================================
+   CUSTOM BUILDER
+===================================================================== */
+function openBuilder(){ state = {view:"builder", bank:state.bank}; customSelection = new Set(); render(); window.scrollTo(0,0); }
+function toggleCustomKey(key){ customSelection.has(key) ? customSelection.delete(key) : customSelection.add(key); render(); }
+function selectAllCustom(){ SECTION_DEFS.forEach(s=>{ if(getCount(state.bank,s.key)>0) customSelection.add(s.key); }); render(); }
+function clearCustom(){ customSelection.clear(); render(); }
+function proceedCustom(mode){
+  const keys = [...customSelection];
+  if(keys.length===0) return;
+  const scope = {type:"subjects", subjectKeys:keys};
+  if(mode==="quiz") launchRun(state.bank, scope, "quiz", null);
+  else openSetup(scope);
+}
+
+function viewBuilder(){
+  const bank = state.bank;
+  const items = SECTION_DEFS.map(s=>{
+    const n = getCount(bank,s.key);
+    const on = customSelection.has(s.key);
+    return `
+    <div class="check-item ${on?"on":""} ${n===0?"":""}" onclick="${n>0?`toggleCustomKey('${s.key}')`:""}" style="${n===0?"opacity:.45; cursor:default;":""}">
+      <div class="box">${on?"✓":""}</div>
+      <div class="lbl">${s.icon} ${s.name}</div>
+      <div class="cnt">${n}</div>
+    </div>`;
+  }).join("");
+
+  const totalSelected = [...customSelection].reduce((a,k)=>a+getCount(bank,k),0);
+
+  return `
+  <div class="back-row"><button class="back-btn" onclick="goHome()">‹ All sections</button></div>
+  <div class="builder-card">
+    <h2>Build a custom test</h2>
+    <p>Select any sections from the ${BANK_LABEL[bank]} bank to combine into one test.</p>
+    <div class="builder-toolbar">
+      <button class="link-btn" onclick="selectAllCustom()">Select all</button>
+      <button class="link-btn" onclick="clearCustom()">Clear</button>
+    </div>
+    <div class="check-grid">${items}</div>
+    <div class="builder-summary">
+      <div>${customSelection.size} section${customSelection.size===1?"":"s"} selected</div>
+      <b>${totalSelected} question${totalSelected===1?"":"s"}</b>
+    </div>
+    <div class="builder-actions">
+      <button class="btn-sm primary" ${totalSelected===0?"disabled style='opacity:.5'":""} onclick="proceedCustom('test')">Continue to timer ›</button>
+      <button class="btn-sm" ${totalSelected===0?"disabled style='opacity:.5'":""} onclick="proceedCustom('quiz')">Practice mode (no timer)</button>
+    </div>
+  </div>
+  `;
+}
+
+/* =====================================================================
+   TIMER SETUP
+===================================================================== */
+function openSetup(scope){
+  const count = collectQuestions(state.bank, scope).length;
+  const suggested = Math.max(5, Math.round(count*1.2));
+  state = {view:"setup", bank:state.bank, scope, count, suggested, timerMinutes:suggested};
+  render(); window.scrollTo(0,0);
+}
+function pickTimer(mins){ state.timerMinutes = mins; render(); }
+function pickCustomTimer(val){ const n = parseInt(val,10); state.timerMinutes = isNaN(n)?0:n; }
+function beginFromSetup(){ launchRun(state.bank, state.scope, "test", state.timerMinutes>0 ? state.timerMinutes : null); }
+
+function viewSetup(){
+  const presets = [0,30,45,60,90];
+  const chips = presets.map(m=>{
+    const label = m===0 ? "No timer" : m+" min";
+    return `<button class="chip ${state.timerMinutes===m?'active':''}" onclick="pickTimer(${m})">${label}</button>`;
+  }).join("");
+  const suggestedChip = `<button class="chip ${state.timerMinutes===state.suggested?'active':''}" onclick="pickTimer(${state.suggested})">${state.suggested} min (suggested)</button>`;
+
+  return `
+  <div class="back-row"><button class="back-btn" onclick="goHome()">‹ All sections</button></div>
+  <div class="setup-card">
+    <h2>${escapeHtml(scopeTitle(state.bank, state.scope))}</h2>
+    <div class="cnt">${state.count} questions · set your time limit</div>
+    <div class="chip-grid">${suggestedChip}${chips}</div>
+    <div class="custom-time">
+      <label>Custom (minutes):</label>
+      <input type="number" min="0" value="${state.timerMinutes}" oninput="pickCustomTimer(this.value)">
+    </div>
+    <button class="btn btn-gold" onclick="beginFromSetup()" style="width:100%; justify-content:center;">Start test</button>
+  </div>
+  `;
+}
+
+/* =====================================================================
+   RUN (quiz / test)
+===================================================================== */
+function startFull(mode){
+  const scope = {type:"full"};
+  if(mode==="quiz") launchRun(state.bank, scope, "quiz", null);
+  else openSetup(scope);
+}
+
+function launchRun(bank, scope, mode, timerMinutes){
+  const questions = collectQuestions(bank, scope);
+  if(questions.length===0){ return; }
+  state = {
+    view:"run", bank, scope, mode,
+    title: scopeTitle(bank, scope),
+    resultId: scopeResultId(bank, scope),
+    questions, current:0, answers:{}, flagged:{},
+    startedAt: Date.now(),
+    timeLimitSec: (mode==="test" && timerMinutes) ? timerMinutes*60 : null
+  };
+  render();
+  window.scrollTo(0,0);
+  if(mode==="test"){ startTimer(); }
+}
+
+function startTimer(){
+  clearInterval(timerHandle);
+  timerHandle = setInterval(()=>{
+    if(state.view!=="run"){ clearInterval(timerHandle); return; }
+    const elapsed = (Date.now()-state.startedAt)/1000;
+    const timerEl = document.getElementById("timerDisplay");
+    if(state.timeLimitSec){
+      const remaining = state.timeLimitSec - elapsed;
+      if(timerEl){ timerEl.textContent = fmtTime(remaining); timerEl.classList.toggle("low", remaining<60); }
+      if(remaining<=0){ clearInterval(timerHandle); finishRun(); }
+    } else if(timerEl){
+      timerEl.textContent = fmtTime(elapsed);
+    }
+  },1000);
+}
+
+function selectOption(qi, oi){
+  if(state.mode==="quiz" && state.answers[qi]!==undefined) return;
+  state.answers[qi] = oi;
+  render();
+}
+function toggleFlag(qi){ state.flagged[qi] = !state.flagged[qi]; render(); }
+function gotoQuestion(i){ state.current = i; render(); window.scrollTo(0,0); }
+
+function viewRun(){
+  const qs = state.questions;
+  const qi = state.current;
+  const q = qs[qi];
+  const answered = state.answers[qi];
+  const isQuiz = state.mode==="quiz";
+  const showFeedback = isQuiz && answered!==undefined;
+  const dups = dupTitlesFor(state.bank, q, q.setTitle);
+
+  const optsHtml = q.opts.map((opt,oi)=>{
+    let cls = "opt";
+    if(showFeedback){
+      if(oi===q.correct) cls += " correct";
+      else if(oi===answered) cls += " wrong";
+    } else if(answered===oi){
+      cls += " selected";
+    }
+    const disabled = showFeedback ? "disabled" : "";
+    return `<button class="${cls}" ${disabled} onclick="selectOption(${qi},${oi})">
+      <span class="tag">${letters(oi)}</span><span>${escapeHtml(opt)}</span>
+    </button>`;
+  }).join("");
+
+  const explainHtml = showFeedback ? `<div class="explain">${answered===q.correct ? "Correct." : "Not quite —"} the correct answer is <b>${letters(q.correct)}. ${escapeHtml(q.opts[q.correct])}</b>.</div>` : "";
+
+  const answeredCount = Object.keys(state.answers).length;
+
+  const navGrid = qs.map((_,i)=>{
+    let cls = "nav-cell";
+    if(state.answers[i]!==undefined) cls += " answered";
+    if(state.flagged[i]) cls += " flagged";
+    if(i===qi) cls += " current";
+    return `<div class="${cls}" onclick="gotoQuestion(${i})">${i+1}</div>`;
+  }).join("");
+
+  let timerHtml = "";
+  if(state.mode==="test"){
+    const initial = state.timeLimitSec ? fmtTime(state.timeLimitSec - (Date.now()-state.startedAt)/1000) : fmtTime((Date.now()-state.startedAt)/1000);
+    timerHtml = `<div class="timer" id="timerDisplay">${initial}</div>`;
+  }
+
+  return `
+  <div class="run-header">
+    <div class="run-topline">
+      <div class="run-title">${escapeHtml(state.title)} · ${isQuiz?"Practice":"Test"}</div>
+      ${timerHtml || `<div class="run-title">${answeredCount}/${qs.length} answered</div>`}
+    </div>
+    <div class="progressbar"><div style="width:${Math.round(((qi+1)/qs.length)*100)}%"></div></div>
+  </div>
+
+  <div class="run-body">
+    <div class="qcard">
+      <div class="qnum">Question ${qi+1} of ${qs.length} · ${escapeHtml(q.subjectName)}</div>
+      ${dups.length ? `<div class="dup-badge">🔁 Also appears in: ${dups.map(escapeHtml).join(", ")}</div>` : ""}
+      <div class="qtext">${escapeHtml(q.q)}</div>
+      ${optsHtml}
+      ${explainHtml}
+    </div>
+
+    ${state.mode==="test" ? `<div class="flag-row"><button class="flag-btn ${state.flagged[qi]?'on':''}" onclick="toggleFlag(${qi})">${state.flagged[qi]?"★ Marked for review":"☆ Mark for review"}</button></div>` : ""}
+
+    <div class="run-nav">
+      <button class="btn-sm" ${qi===0?"disabled style='opacity:.4'":""} onclick="gotoQuestion(${qi-1})">‹ Previous</button>
+      ${qi<qs.length-1 ? `<button class="btn-sm primary" onclick="gotoQuestion(${qi+1})">Next ›</button>` : `<button class="btn-sm primary" onclick="finishRun()">Finish</button>`}
+    </div>
+  </div>
+
+  ${state.mode==="test" ? `
+  <div class="navigator">
+    <h4>QUESTION MAP — tap to jump</h4>
+    <div class="nav-grid">${navGrid}</div>
+  </div>
+  <div class="submit-bar"><button class="btn btn-gold" onclick="finishRun()">Submit test</button></div>
+  ` : `
+  <div class="submit-bar"><button class="btn btn-ghost" style="color:var(--navy-800);border-color:var(--navy-800)" onclick="finishRun()">End practice &amp; see summary</button></div>
+  `}
+  `;
+}
+
+/* =====================================================================
+   RESULTS
+===================================================================== */
+function finishRun(){
+  clearInterval(timerHandle);
+  const qs = state.questions;
+  let correct = 0, wrong = 0, skipped = 0;
+  const bySubject = {};
+  qs.forEach((q,i)=>{
+    if(!bySubject[q.subjectName]) bySubject[q.subjectName] = {correct:0,total:0};
+    bySubject[q.subjectName].total++;
+    const a = state.answers[i];
+    if(a===undefined){ skipped++; }
+    else if(a===q.correct){ correct++; bySubject[q.subjectName].correct++; }
+    else{ wrong++; }
+  });
+  const pct = qs.length ? Math.round((correct/qs.length)*100) : 0;
+  const timeTakenSec = (Date.now()-state.startedAt)/1000;
+  setBest(state.resultId, pct);
+
+  state = {...state, view:"result", correct, wrong, skipped, pct, bySubject, timeTakenSec, reviewFilter:"all"};
+  render();
+  window.scrollTo(0,0);
+}
+
+function setReviewFilter(f){ state.reviewFilter = f; render(); }
+
+function viewResult(){
+  const qs = state.questions;
+  const bd = Object.entries(state.bySubject).map(([name,v])=>{
+    const p = Math.round((v.correct/v.total)*100);
+    return `<div class="bd-row">
+      <div class="bd-top"><b>${escapeHtml(name)}</b><span>${v.correct}/${v.total}</span></div>
+      <div class="bd-track"><div class="bd-fill" style="width:${p}%; background:${p>=60?"var(--green)":p>=35?"var(--amber)":"var(--red)"}"></div></div>
+    </div>`;
+  }).join("");
+
+  const filters = ["all","wrong","skipped"].map(f=>`<button class="filter-chip ${state.reviewFilter===f?"active":""}" onclick="setReviewFilter('${f}')">${f==="all"?"All":f==="wrong"?"Incorrect":"Skipped"}</button>`).join("");
+
+  const reviewItems = qs.map((q,i)=>{
+    const a = state.answers[i];
+    const status = a===undefined ? "skip" : (a===q.correct ? "ok" : "no");
+    if(state.reviewFilter==="wrong" && status!=="no") return "";
+    if(state.reviewFilter==="skipped" && status!=="skip") return "";
+    const dups = dupTitlesFor(state.bank, q, q.setTitle);
+    const optsHtml = q.opts.map((opt,oi)=>{
+      let cls="review-opt";
+      if(oi===q.correct) cls+=" correct";
+      else if(oi===a) cls+=" your-wrong";
+      return `<div class="${cls}">${letters(oi)}. ${escapeHtml(opt)}</div>`;
+    }).join("");
+    return `<div class="review-item">
+      <div class="review-tagbar">
+        <span class="pill ${status}">${status==="ok"?"CORRECT":status==="no"?"INCORRECT":"SKIPPED"}</span>
+        <span class="pill skip">${escapeHtml(q.subjectName)}</span>
+        ${dups.length ? `<span class="pill dup">🔁 also in ${dups.length} other paper${dups.length===1?"":"s"}</span>` : ""}
+      </div>
+      <div class="qtext">${i+1}. ${escapeHtml(q.q)}</div>
+      ${optsHtml}
+    </div>`;
+  }).join("") || `<div class="empty-note">Nothing to show for this filter.</div>`;
+
+  return `
+  <div class="back-row"><button class="back-btn" onclick="goHome()">‹ All sections</button></div>
+  <div class="score-hero">
+    <div class="score-sub">${escapeHtml(state.title)}</div>
+    <div class="score-big">${state.pct}%</div>
+    <div class="score-sub">${state.correct} correct out of ${state.questions.length}</div>
+    <div class="stat-row">
+      <div><b>${state.correct}</b><span>Correct</span></div>
+      <div><b>${state.wrong}</b><span>Incorrect</span></div>
+      <div><b>${state.skipped}</b><span>Skipped</span></div>
+      <div><b>${fmtTime(state.timeTakenSec)}</b><span>Time taken</span></div>
+    </div>
+  </div>
+
+  ${Object.keys(state.bySubject).length>1 ? `<div class="section-label">Section-wise breakdown</div><div class="breakdown">${bd}</div>` : ""}
+
+  <div class="section-label">Answer review</div>
+  <div class="filter-row">${filters}</div>
+  ${reviewItems}
+
+  <div class="result-actions">
+    <button class="btn-sm primary" onclick="retrySame()">Retry this test</button>
+    <button class="btn-sm" onclick="goHome()">Back to sections</button>
+  </div>
+  `;
+}
+
+function retrySame(){
+  launchRun(state.bank, state.scope, state.mode, state.timeLimitSec ? Math.round(state.timeLimitSec/60) : null);
+}
+
+/* =====================================================================
+   RENDER DISPATCH
+===================================================================== */
+function render(){
+  renderMasthead();
+  const app = document.getElementById("app");
+  app.className = (state.view==="home" || state.view==="builder") ? "wide" : "";
+  if(state.view==="home") app.innerHTML = viewHome();
+  else if(state.view==="subject") app.innerHTML = viewSubject();
+  else if(state.view==="builder") app.innerHTML = viewBuilder();
+  else if(state.view==="setup") app.innerHTML = viewSetup();
+  else if(state.view==="run") app.innerHTML = viewRun();
+  else if(state.view==="result") app.innerHTML = viewResult();
+}
+
+initTheme();
+</script>
+
+<!-- ===================================================================
+     QUESTION FILES
+     Fixed list of 28 files (14 sections × 2 banks). This list itself
+     should not need to change — add new questions by editing the
+     relevant file below, not by adding new <script> tags here.
+==================================================================== -->
+<script src="questions/pyq/ancient.js"></script>
+<script src="questions/pyq/medieval.js"></script>
+<script src="questions/pyq/modern.js"></script>
+<script src="questions/pyq/geography.js"></script>
+<script src="questions/pyq/wbgeo.js"></script>
+<script src="questions/pyq/artsculture.js"></script>
+<script src="questions/pyq/polity.js"></script>
+<script src="questions/pyq/economy.js"></script>
+<script src="questions/pyq/physics.js"></script>
+<script src="questions/pyq/chemistry.js"></script>
+<script src="questions/pyq/biology.js"></script>
+<script src="questions/pyq/staticgk.js"></script>
+<script src="questions/pyq/currentaffairs.js"></script>
+<script src="questions/pyq/maths.js"></script>
+
+<script src="questions/mock/ancient.js"></script>
+<script src="questions/mock/medieval.js"></script>
+<script src="questions/mock/modern.js"></script>
+<script src="questions/mock/geography.js"></script>
+<script src="questions/mock/wbgeo.js"></script>
+<script src="questions/mock/artsculture.js"></script>
+<script src="questions/mock/polity.js"></script>
+<script src="questions/mock/economy.js"></script>
+<script src="questions/mock/physics.js"></script>
+<script src="questions/mock/chemistry.js"></script>
+<script src="questions/mock/biology.js"></script>
+<script src="questions/mock/staticgk.js"></script>
+<script src="questions/mock/currentaffairs.js"></script>
+<script src="questions/mock/maths.js"></script>
+
+<script>render();</script>
+</body>
+</html>
