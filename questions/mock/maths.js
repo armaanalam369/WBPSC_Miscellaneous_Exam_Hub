@@ -19,7 +19,7 @@
 
 addSubject("mock", "maths", [
   {
-    "title": "WBUA MISC-2024 (PH-I)",
+    "title": "WBPSC MISC-2024 (MT-1)",
     "date": "27 Aug 2026",
     "questions": [
       {
@@ -278,7 +278,7 @@ addSubject("mock", "maths", [
 
 addSubject("mock", "maths", [
   {
-    "title": "WBUA MISC-2024 (PH-I) — VST-2",
+    "title": "WBPSC MISC-2024 (MT-2)",
     "date": "03 Sep 2026",
     "questions": [
       {
@@ -537,7 +537,7 @@ addSubject("mock", "maths", [
 
 addSubject("mock", "maths", [
   {
-    "title": "WBUA MISC-2024 (PH-I) — VST-3",
+    "title": "WBPSC MISC-2024 (MT-3)",
     "date": "10 Sep 2026",
     "questions": [
       {
@@ -796,7 +796,7 @@ addSubject("mock", "maths", [
 
 addSubject("mock", "maths", [
   {
-    "title": "WBUA MISC-2024 (PH-I) — VST-4",
+    "title": "WBPSC MISC-2024 (MT-4)",
     "date": "17 Sep 2026",
     "questions": [
       {
