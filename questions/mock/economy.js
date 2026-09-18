@@ -19,7 +19,7 @@
 
 addSubject("mock", "economy", [
   {
-    "title": "WBPSC MISC-2024 (MT-1",
+    "title": "WBPSC MISC-2024 (MT-1)",
     "date": "27 Aug 2026",
     "questions": [
       {
@@ -98,7 +98,7 @@ addSubject("mock", "economy", [
 
 addSubject("mock", "economy", [
   {
-    "title": "WBPSC MISC-2024 (MT-2",
+    "title": "WBPSC MISC-2024 (MT-2)",
     "date": "03 Sep 2026",
     "questions": [
       {
@@ -147,7 +147,7 @@ addSubject("mock", "economy", [
 
 addSubject("mock", "economy", [
   {
-    "title": "WBPSC MISC-2024 (MT-3",
+    "title": "WBPSC MISC-2024 (MT-3)",
     "date": "10 Sep 2026",
     "questions": [
       {
